@@ -1,4 +1,4 @@
-package com.nishant.simpledrawerexample;
+package com.nishant.simpledrawerexample.NavigationDrawer;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.nishant.simpledrawerexample.R;
 
 /**
  * Created by nishant on 22/12/16.

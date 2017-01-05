@@ -1,8 +1,8 @@
-package com.nishant.simpledrawerexample;
+package com.nishant.simpledrawerexample.NavigationDrawer;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +18,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.nishant.simpledrawerexample.CollapsingToolbar.ToolBarActivity;
+import com.nishant.simpledrawerexample.R;
+import com.nishant.simpledrawerexample.SwipeToRefresh.SwipeRefreshActivity;
 
 import java.util.ArrayList;
 
@@ -39,12 +42,12 @@ public class HomeActivity extends AppCompatActivity {
 
         pojoArrayList = new ArrayList<>();
         NavigationDrawerItemPOJO nav = new NavigationDrawerItemPOJO();
-        nav.setIcon(R.mipmap.ic_launcher);
-        nav.setName("Name 1");
+        nav.setIcon(R.drawable.ic_3d);
+        nav.setName("Expanded Toolbar");
         pojoArrayList.add(nav);
         NavigationDrawerItemPOJO nav1 = new NavigationDrawerItemPOJO();
-        nav1.setIcon(R.mipmap.ic_launcher);
-        nav1.setName("Name 2");
+        nav1.setIcon(R.drawable.ic_update);
+        nav1.setName("Swipe to Refresh");
         pojoArrayList.add(nav1);
         mDrawerList.setAdapter(new NavigationDrawerAdapter(this, R.layout.item_navigation_drawer, pojoArrayList));
 
@@ -52,8 +55,18 @@ public class HomeActivity extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(), "Item clicked: " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Item clicked: " + position, Toast.LENGTH_SHORT).show();
                 mDrawerLayout.closeDrawer(mDrawerList);
+                switch (position) {
+                    case 0:
+                        startActivity(new Intent(HomeActivity.this, ToolBarActivity.class));
+                        break;
+
+                    case 1:
+                        startActivity(new Intent(HomeActivity.this, SwipeRefreshActivity.class));
+                        break;
+                }
+
             }
         });
 
@@ -78,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
-        initFragment(new HomeFragment());
+        //initFragment(new HomeFragment());
     }
 
     //Set the custom toolbar
@@ -91,29 +104,16 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         TextView txtvw = (TextView) findViewById(R.id.toolbar_title);
-        txtvw.setText("Nishant");
+        txtvw.setText("Home");
     }
 
-    public void initFragment(Fragment ft) {
+    /*public void initFragment(Fragment ft) {
         Fragment fragment = ft;
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
                 .addToBackStack(null)
                 .commit();
-    }
-
-    /*@Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.
-        mDrawerToggle.syncState();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mDrawerToggle.onConfigurationChanged(newConfig);
     }*/
 
     public class NavigationDrawerAdapter extends ArrayAdapter<NavigationDrawerItemPOJO> {
@@ -163,7 +163,5 @@ public class HomeActivity extends AppCompatActivity {
 
         public NavigationDrawerItemPOJO() {
         }
-
-
     }
 }
