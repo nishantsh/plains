@@ -9,6 +9,8 @@
     <color name="colorTextIcons">#FFFFFF</color>
     <color name="colorNavigationDrawerBG">#009688</color>
 
+    <color name="colorStausBar">#57dd86</color>
+
 
     <string-array name="movie_serial_bg">
         <item>#24c6d5</item>

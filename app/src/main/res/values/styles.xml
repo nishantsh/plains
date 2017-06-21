@@ -7,6 +7,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>-->
     </style>
 
     <!-- Style for Drawer Icon animation   -->
@@ -17,13 +24,12 @@
 
 
     <style name="expandedappbar" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="collapsedappbar" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">22sp</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

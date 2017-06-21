@@ -2,28 +2,37 @@
     android:id="@+id/top_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorDivider"
+    android:background="@color/colorStausBar"
     android:fitsSystemWindows="true">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/layout_toolbar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:text="Hello from Nishant.."
-        android:textSize="22sp"
-        android:textColor="@color/colorNavigationDrawerBG" />
-
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
+
+        <FrameLayout
+            android:id="@+id/container_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorDivider">
+
+            <TextView
+                android:id="@+id/txtVw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="Hello from Nishant.."
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="22sp" />
+
+        </FrameLayout>
 
         <!-- The navigation drawer -->
         <ListView
@@ -38,4 +47,6 @@
             android:paddingTop="4dp" />
 
     </android.support.v4.widget.DrawerLayout>
+
+
 </RelativeLayout>

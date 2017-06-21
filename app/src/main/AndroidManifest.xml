@@ -23,6 +23,7 @@
 
         <activity android:name=".CollapsingToolbar.ToolBarActivity"></activity>
         <activity android:name=".SwipeToRefresh.SwipeRefreshActivity"></activity>
+        <activity android:name=".NavigationDrawer.SampleActivity"></activity>
     </application>
 
 </manifest>
